@@ -7,7 +7,7 @@ import { XapiActor, XapiActivity, XapiStatement, XapiVerb, XapiResult, XapiConte
 import { ContentPackage } from '../../shared/models/content-package.model';
 import { v4 as uuidv4 } from 'uuid';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class XapiService {
   constructor(
     private userService: UserService,

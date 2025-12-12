@@ -9,7 +9,7 @@ export interface Cmi5Session {
   endedAt?: string;
 }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class Cmi5Service {
   private currentSession?: Cmi5Session;
 

@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ScormPlayerComponent } from './features/player/scorm-player.component';
 import { ReportingComponent } from './features/reporting/reporting.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', redirectTo: 'player', pathMatch: 'full' },
   { path: 'player', component: ScormPlayerComponent },
   { path: 'reporting', component: ReportingComponent },

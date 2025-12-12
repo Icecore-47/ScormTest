@@ -20,7 +20,7 @@ interface ScormErrorState {
   lastDiagnostic: string;
 }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ScormRuntimeService {
   private currentAttempt?: LearningAttempt;
   private currentRuntime: ScormRuntimeSnapshot = { data: {}, interactions: [] };

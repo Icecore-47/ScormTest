@@ -6,7 +6,7 @@ import { LearningAttempt } from '../../shared/models/scorm-attempt.model';
 import { XapiStatement } from '../../shared/models/xapi.model';
 import { Observable, of } from 'rxjs';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ApiClientService {
   private readonly baseUrl = environment.apiBaseUrl;
   private readonly lrsEndpoint = environment.lrsEndpoint;

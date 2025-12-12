@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../shared/models/user.model';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class UserService {
   private readonly testUser: User = {
     id: 'test-user-001',

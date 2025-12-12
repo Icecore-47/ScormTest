@@ -14,7 +14,7 @@ export interface ScoNode {
   isLeaf: boolean;
 }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ScormSequencingService {
   private currentSco?: ScoNode;
   private courseStructure: ScoNode[] = [];
