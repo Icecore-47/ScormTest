@@ -1,0 +1,69 @@
+<!-- src/app/features/reporting/reporting.component.html -->
+<div class="card">
+  <div class="card__title">Attempts overview</div>
+  <div class="card__subtitle">
+    Per-user completion, scores and attempts (current: hardcoded test user).
+  </div>
+
+  <div style="margin-bottom: 0.75rem; display: flex; gap: 0.5rem;">
+    <button class="btn btn--secondary" (click)="loadAttempts()">
+      Refresh
+    </button>
+    <button class="btn btn--primary" (click)="downloadCsv('attempts')">
+      Export attempts CSV
+    </button>
+    <button class="btn btn--secondary" (click)="downloadCsv('interactions')">
+      Export interactions CSV
+    </button>
+    <button class="btn btn--secondary" (click)="downloadCsv('xapi')">
+      Export xAPI CSV
+    </button>
+  </div>
+
+  <table class="table" *ngIf="attempts.length > 0; else emptyState">
+    <thead>
+      <tr>
+        <th>Attempt ID</th>
+        <th>Content</th>
+        <th>Standard</th>
+        <th>Status</th>
+        <th>Success</th>
+        <th>Score (raw)</th>
+        <th>Score (scaled)</th>
+        <th>Started</th>
+        <th>Ended</th>
+        <th>Interactions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let attempt of attempts">
+        <td>{{ attempt.id }}</td>
+        <td>{{ attempt.contentPackageId }}</td>
+        <td>{{ attempt.standard }}</td>
+        <td>
+          <span
+            class="badge"
+            [ngClass]="{
+              'badge--success': attempt.status === 'completed',
+              'badge--warning': attempt.status !== 'completed'
+            }"
+          >
+            {{ attempt.status }}
+          </span>
+        </td>
+        <td>{{ attempt.success }}</td>
+        <td>{{ attempt.scoreRaw ?? '—' }}</td>
+        <td>{{ attempt.scoreScaled ?? '—' }}</td>
+        <td>{{ attempt.startedAt | date: 'short' }}</td>
+        <td>{{ attempt.endedAt ? (attempt.endedAt | date: 'short') : '—' }}</td>
+        <td>{{ attempt.runtimeSnapshot?.interactions?.length ?? 0 }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #emptyState>
+    <p style="font-size: 0.875rem; color: #6b7280;">
+      No attempts recorded yet. Launch a package from the Player tab to start tracking data.
+    </p>
+  </ng-template>
+</div>

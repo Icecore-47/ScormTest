@@ -1,0 +1,53 @@
+<!-- src/app/features/player/scorm-player.component.html -->
+<div class="card">
+  <div class="card__title">Content packages</div>
+  <div class="card__subtitle">
+    Select a SCORM / xAPI / cmi5 package and launch it in the player.
+  </div>
+
+  <div class="package-list">
+    <div
+      *ngFor="let pkg of packages"
+      class="package-list__item"
+      [class.package-list__item--selected]="pkg.id === selectedPackage?.id"
+      (click)="selectPackage(pkg)"
+    >
+      <div class="package-list__title">{{ pkg.title }}</div>
+      <div class="package-list__meta">
+        <span class="badge badge--info">{{ pkg.standard }}</span>
+        <span *ngIf="pkg.version" class="badge badge--secondary">v{{ pkg.version }}</span>
+      </div>
+      <div class="package-list__description">
+        {{ pkg.description || 'No description provided.' }}
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 1rem; display: flex; gap: 0.5rem; align-items: center;">
+    <button class="btn btn--primary" (click)="launchSelected()" [disabled]="!selectedPackage">
+      Launch selected
+    </button>
+    <button class="btn btn--secondary" (click)="reload()" [disabled]="!isLaunched">
+      Reload player
+    </button>
+    <span *ngIf="selectedPackage" style="font-size: 0.8rem; color: #6b7280;">
+      Launch path: {{ selectedPackage.launchPath }}
+    </span>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card__title">Player</div>
+  <div class="card__subtitle">
+    SCORM API objects are exposed on the window (API / API_1484_11) for SCORM content.
+  </div>
+
+  <div class="player-frame-wrapper">
+    <iframe
+      #playerFrame
+      title="SCORM/xAPI Player Frame"
+      class="player-frame"
+      sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
+    ></iframe>
+  </div>
+</div>

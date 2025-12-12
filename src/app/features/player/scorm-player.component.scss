@@ -1,0 +1,58 @@
+/* src/app/features/player/scorm-player.component.scss */
+.package-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.package-list__item {
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem;
+  cursor: pointer;
+  background-color: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.package-list__item:hover {
+  border-color: #2563eb;
+  box-shadow: 0 8px 12px -4px rgba(37, 99, 235, 0.2);
+  transform: translateY(-1px);
+}
+
+.package-list__item--selected {
+  border-color: #7c3aed;
+  box-shadow: 0 8px 16px -4px rgba(124, 58, 237, 0.25);
+}
+
+.package-list__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.package-list__meta {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.package-list__description {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.player-frame-wrapper {
+  margin-top: 0.75rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  background-color: #111827;
+}
+
+.player-frame {
+  width: 100%;
+  height: 600px;
+  border: none;
+  background-color: #ffffff;
+}

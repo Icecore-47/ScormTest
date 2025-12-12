@@ -1,0 +1,32 @@
+<!-- src/app/app.component.html -->
+<div class="app-shell">
+  <header class="app-header">
+    <div>
+      <div class="app-header__title">{{ title }}</div>
+      <div class="app-header__subtitle">
+        SCORM 1.2 / 2004 • xAPI • cmi5 — Runtime & Reporting Shell
+      </div>
+    </div>
+    <div>
+      <span class="badge badge--info">
+        Test user: {{ userService.currentUser.displayName }} ({{ userService.currentUser.id }})
+      </span>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <nav style="margin-bottom: 1rem; display: flex; gap: 0.5rem;">
+      <a routerLink="/player" routerLinkActive="active" class="btn btn--secondary">
+        Player
+      </a>
+      <a routerLink="/reporting" routerLinkActive="active" class="btn btn--secondary">
+        Reporting
+      </a>
+    </nav>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="app-footer">
+    Learning Runtime Platform &copy; {{ new Date().getFullYear() }} — SCORM/xAPI/cmi5 demo shell.
+  </footer>
+</div>

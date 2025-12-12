@@ -1,0 +1,9 @@
+/* src/app/app.component.scss */
+a.btn {
+  text-decoration: none;
+}
+
+a.btn.active {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #ffffff;
+}
