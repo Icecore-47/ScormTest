@@ -9,6 +9,7 @@ import { UserService } from './core/services/user.service';
 })
 export class AppComponent {
   title = 'Learning Runtime Platform';
+  currentYear = new Date().getFullYear();
 
   constructor(public userService: UserService) {}
 }

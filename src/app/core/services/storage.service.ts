@@ -5,7 +5,7 @@ import { LearningAttempt } from '../../shared/models/scorm-attempt.model';
 const ATTEMPTS_KEY = 'lrp_attempts';
 const XAPI_KEY = 'lrp_xapi_statements';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class StorageService {
   saveAttempts(attempts: LearningAttempt[]): void {
     localStorage.setItem(ATTEMPTS_KEY, JSON.stringify(attempts));
